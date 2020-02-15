@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1580613592 source:/home/jordan/Documents/CPP/IntroToGameDev/Chapter2/dieroller/main.cpp
+	<cstdlib>
+	<ctime>
+	<iostream>
+
