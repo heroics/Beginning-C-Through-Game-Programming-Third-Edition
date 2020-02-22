@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1582395049 source:/home/jordan/Documents/CPP/BeginningCPPThroughGameProgramming/Chapter4/Hangman/main.cpp
+	<algorithm>
+	<cctype>
+	<ctime>
+	<iostream>
+	<string>
+	<vector>
+

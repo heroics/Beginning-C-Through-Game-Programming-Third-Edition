@@ -1,6 +1,5 @@
 // Hangman
 // The classic of game of hangman
-
 #include <algorithm>
 #include <cctype>
 #include <ctime>
@@ -10,22 +9,18 @@
 int main()
 {
     // Setup
-    const int MAXWRONG = 8; // maximum number of incorrect guess allowed
-
+    const int MAXWRONG = 8;                // maximum number of incorrect guess allowed
     std::vector<std::string> wordsToGuess; // collection of possible words to guess
     wordsToGuess.push_back("GUESS");
     wordsToGuess.push_back("HANGMAN");
     wordsToGuess.push_back("DIFFICULT");
-
     srand(static_cast<unsigned int>(time(0))); // Seed random generator
     std::random_shuffle(wordsToGuess.begin(), wordsToGuess.end());
     const std::string WORDTOGUESS = wordsToGuess[0]; // Word to guess
     int wrongGuesses = 0;                            // number of incorrect guesses
     std::string current(WORDTOGUESS.size(), '-');
     std::string lettersGuessed = "";
-
     std::cout << "Welcome to Hangman. Good luck!\n";
-
     // Game Loop
     while ((wrongGuesses < MAXWRONG) && (current != WORDTOGUESS))
     {
@@ -33,7 +28,6 @@ int main()
         std::cout << " incorrect guess left.\n";
         std::cout << "\nYou have used the following letters:\n"
                   << lettersGuessed << std::endl;
-
         // Get the player guess
         char playerGuess;
         std::cout << "\n\nEnter your guess: ";
@@ -47,12 +41,10 @@ int main()
             playerGuess = std::toupper(playerGuess);
         }
         lettersGuessed += playerGuess;
-
         if (WORDTOGUESS.find(playerGuess) != std::string::npos)
         {
-            std::cout << "That's correct!" << playerGuess << " is in the word.\n";
-
-            // Upadate current to include newly guessed letter
+            std::cout << "That's correct! " << playerGuess << " is in the word.\n";
+            // Update current to include newly guessed letter
             for (int i = 0; i < WORDTOGUESS.length(); i++)
             {
                 if (WORDTOGUESS[i] == playerGuess)
@@ -74,8 +66,8 @@ int main()
     }
     else
     {
-        std::cout << "\nThe word was " << WORDTOGUESS << std::endl;
+        std::cout << "You guessed it!";
     }
-
+    std::cout << "\nThe word was " << WORDTOGUESS << std::endl;
     return 0;
 }
