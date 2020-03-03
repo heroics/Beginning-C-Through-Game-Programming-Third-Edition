@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1583266127 source:/home/jordan/Documents/CPP/BeginningCPPThroughGameProgramming/Chapter6/TicTacToe/TieTacToe/main.cpp
+	<algorithm>
+	<iostream>
+	<string>
+	<vector>
+
