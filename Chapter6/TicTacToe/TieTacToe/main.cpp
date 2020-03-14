@@ -28,10 +28,10 @@ void instructions();
 int main()
 {
     /*
-   * Instance Variables
-   */
-    char human = humanPiece();
+     * Instance Variables
+     */
     char computer = opponentPiece(human);
+    char human = humanPiece();
     char turn = X;
     const int NUM_SQUARES = 9;
     int move;
