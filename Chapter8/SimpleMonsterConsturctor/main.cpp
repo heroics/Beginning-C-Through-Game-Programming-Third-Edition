@@ -1,0 +1,28 @@
+// Monster Constructor
+#include <iostream>
+using namespace std;
+class Monster
+{
+public:
+    int healthPoints;
+    Monster(int healthPoint = 10);
+    void Stats();
+};
+
+Monster::Monster(int healthPoints)
+{
+    cout << "A monster has appeared!" << endl;
+    this->healthPoints = healthPoints;
+}
+
+void Monster::Stats()
+{
+    cout << "HP: " << this->healthPoints << " / " << this->healthPoints << endl;
+}
+
+int main()
+{
+    Monster goblin(7);
+    goblin.Stats();
+    return 0;
+}
