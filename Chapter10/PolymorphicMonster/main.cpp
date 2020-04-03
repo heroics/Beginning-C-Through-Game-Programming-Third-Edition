@@ -1,0 +1,68 @@
+// Polymorphic Monster
+// Demonstrates calling member functions dynamically
+#include <iostream>
+
+using namespace std;
+
+class Monster
+{
+public:
+    Monster(int damage = 10);
+    virtual ~Monster();
+    void virtual attack() const;
+
+protected:
+    int *ptrDamage;
+};
+Monster::Monster(int damage)
+{
+    ptrDamage = new int(damage);
+}
+Monster::~Monster()
+{
+    cout << "In Monster Deconstructor." << endl;
+    cout << "Deleting [ptrDamage]" << endl;
+    cout << "================" << endl;
+    delete ptrDamage;
+    ptrDamage = 0;
+}
+void Monster::attack() const
+{
+    cout << "The monster attacks and inflicts" << *ptrDamage << "damage points";
+}
+class Boss : public Monster
+{
+public:
+    Boss(int multiplier = 3);
+    virtual ~Boss();
+    void virtual attack() const;
+
+protected:
+    int *ptrMultiplier;
+};
+Boss::Boss(int multiplier)
+{
+    ptrMultiplier = new int(multiplier);
+}
+Boss::~Boss()
+{
+    cout << "In Boss destructor." << endl;
+    cout << "Deleting [ptrMultiplier]" << endl;
+    cout << "================" << endl;
+    ptrMultiplier = 0;
+}
+void Boss::attack() const
+{
+    cout << "The Boss Monster attack with a might blow and does " << (*ptrMultiplier) * (*ptrDamage) << " damage points.";
+}
+int main()
+{
+    cout << "Calling attack() on Boss object through pointer to monster." << endl;
+    Monster *ptrBoss = new Boss();
+    ptrBoss->attack();
+    cout << endl;
+    cout << "Deleting pointer to enemy" << endl;
+    delete ptrBoss;
+    ptrBoss = 0;
+    return 0;
+}
